@@ -27,12 +27,12 @@ class TestMain
 			var httpClient = new HTTPClient(new mcover.coverage.munit.client.MCoverSummaryReportClient());
 		#else
 			var client = new RichPrintClient();
-			var httpClient = new HTTPClient(new SummaryReportClient());
+			//var httpClient = new HTTPClient(new SummaryReportClient());
 		#end
 
 		var runner:TestRunner = new TestRunner(client); 
-		runner.addResultClient(httpClient);
-		//runner.addResultClient(new HTTPClient(new JUnitReportClient()));
+		//runner.addResultClient(httpClient);
+		runner.addResultClient(new HTTPClient(new JUnitReportClient()));
 		
 		runner.completionHandler = completionHandler;
 		runner.run(suites);
