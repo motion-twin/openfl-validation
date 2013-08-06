@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pwd=$(pwd)
-cd /build
+cd build/
 nekotools server 2>nekotools.log &
 SERVER_PID=$!
 cd $pwd
