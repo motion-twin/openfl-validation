@@ -6,6 +6,8 @@ nekotools server 2>nekotools.log &
 SERVER_PID=$!
 cd $pwd
 
+export DISPLAY=:10
+
 haxelib run openfl test neko
 #haxelib run openfl test cpp	
 haxelib run munit test -kill-browser true -browser firefox
