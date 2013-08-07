@@ -30,9 +30,11 @@ class TestMain
 			//var httpClient = new HTTPClient(new SummaryReportClient());
 		#end
 
-		var runner:TestRunner = new TestRunner(client); 
+		var runner:TestRunner = new TestRunner(client);
 		//runner.addResultClient(httpClient);
 		runner.addResultClient(new HTTPClient(new JUnitReportClient()));
+		
+		#if neko Sys.println('OK GO !'); #end
 		
 		runner.completionHandler = completionHandler;
 		runner.run(suites);
@@ -110,18 +112,18 @@ class TestMain
             var httpClient = new HTTPClient(new SummaryReportClient());
         #end
 
-        var runner:TestRunner = new TestRunner(client); 
+        var runner:TestRunner = new TestRunner(client);
         runner.addResultClient(httpClient);
         //runner.addResultClient(new HTTPClient(new JUnitReportClient()));
-        
+
         runner.completionHandler = completionHandler;
         runner.run(suites);
     }
 
-    
+
         //updates the background color and closes the current browser
         //for flash and html targets (useful for continous integration servers)
-    
+
     function completionHandler(successful:Bool):Void
     {
         try
