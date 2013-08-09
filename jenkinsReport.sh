@@ -1,10 +1,10 @@
-echo "path is ${JENKINS_URL}"
+echo "path is $JENKINS_URL"
 PWD=${WORKSPACE}
 REPORT=${PWD}/JENKINS.md
 
 echo "Jenkins report">$REPORT
 echo "--------------">>$REPORT
-echo "Hi, I am [JenkinsMT]\(${JENKINS_URL}\), I am not a human, I am a testing software which
+echo "Hi, I am [JenkinsMT]($JENKINS_URL), I am not a human, I am a testing software which
 pushes the dev branch on the master branch (stablish) when the tests are successful. ${JENKINS_URL} ">>$REPORT
 echo " ">>$REPORT
 
