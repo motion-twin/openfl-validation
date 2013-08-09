@@ -28,7 +28,6 @@ echo "The last successfull build on Jenkins is
 echo "generated on $(date)"
 
 cd /data/workspace/openfl-validation-linux64/
-cp $PWD/JENKINS.md ./
 git commit -am "jenkins report"
 git push origin master
 
