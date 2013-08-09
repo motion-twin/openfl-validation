@@ -38,6 +38,7 @@ echo "generated on $(date)"
 
 #commit report
 cd /data/workspace/openfl-validation-linux64/
+git checkout master
 git commit -am "jenkins report"
 git push origin master
 
