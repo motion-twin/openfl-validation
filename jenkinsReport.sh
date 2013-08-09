@@ -20,6 +20,14 @@ GIT_REV=$(git rev-parse --verify HEAD)
 echo "* [openfl-validation](https://github.com/motion-twin/openfl-validation) revision
 [${GIT_REV}](https://github.com/motion-twin/openfl-validation/commit/$GIT_REV)">>$REPORT
 
+cd /usr/lib/haxe/lib/openfl-tools/git
+GIT_REV=$(git rev-parse --verify HEAD)
+echo "* [openfl-tools](https://github.com/motion-twin/openfl-tools) revision
+[${GIT_REV}](https://github.com/motion-twin/openfl-tools/commit/$GIT_REV)">>$REPORT
+
+
+
+echo " ">>$REPORT
 
 LAST_BUILD=$(curl ${JENKINS_URL}/job/openfl-validation-linux64/lastStableBuild/buildNumber)
 echo "The last successfull build on Jenkins is
