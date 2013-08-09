@@ -1,4 +1,4 @@
-
+echo "path is ${JENKINS_URL}"
 PWD=${WORKSPACE}
 REPORT=${PWD}/JENKINS.md
 
