@@ -1,6 +1,7 @@
-echo "path is $JENKINS_URL"
+MYR=$RANDOM
+echo "path is $JENKINS_URL ($MYR)"
 PWD=${WORKSPACE}
-REPORT=${PWD}/JENKINS.md
+REPORT=${PWD}/JENKINS-$MYR.md
 
 echo "Jenkins report">$REPORT
 echo "--------------">>$REPORT
