@@ -1,3 +1,5 @@
+#!/bin/bash
+
 MYR=$RANDOM
 echo "path is $JENKINS_URL ($MYR)"
 PWD=${WORKSPACE}
