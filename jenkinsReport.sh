@@ -1,5 +1,7 @@
 #!/bin/bash
+R=$RANDOM
 echo "path is $JENKINS_URL"
+echo "RANDOM $R"
 PWD=$(pwd)
 REPORT=${PWD}/JENKINS.md
 
@@ -34,7 +36,8 @@ LAST_BUILD=$(curl ${JENKINS_URL}/job/openfl-validation-linux64/lastStableBuild/b
 echo "The last successfull build on Jenkins is
 [build-${LAST_BUILD}](${JENKINS_URL}/job/openfl-validation-linux64/${LAST_BUILD})">>$REPORT
 
-echo "generated on $(date)"
+echo "generated on $(date)">>$REPORT
+echo "report id $R">>$REPORT
 
 #commit report
 cd /data/workspace/openfl-validation-linux64/
