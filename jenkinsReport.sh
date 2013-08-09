@@ -4,8 +4,8 @@ REPORT=${PWD}/JENKINS.md
 
 echo "Jenkins report">$REPORT
 echo "--------------">>$REPORT
-echo "Hi, I am [JenkinsMT](${JENKINS_URL}), I am not a human, I am a testing software which
-pushes the dev branch on the master branch (stablish) when the tests are successful.">>$REPORT
+echo "Hi, I am [JenkinsMT]\(${JENKINS_URL}\), I am not a human, I am a testing software which
+pushes the dev branch on the master branch (stablish) when the tests are successful. ${JENKINS_URL} ">>$REPORT
 echo " ">>$REPORT
 
 echo "Here are the version of the libraries I used for the tests :">>$REPORT
