@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "path is $JENKINS_URL"
 PWD=$(pwd)
-REPORT=${PWD}/JENKINS-$MYR.md
+REPORT=${PWD}/JENKINS.md
 
 echo "Jenkins report">$REPORT
 echo "--------------">>$REPORT
