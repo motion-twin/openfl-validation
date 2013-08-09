@@ -35,8 +35,19 @@ echo "The last successfull build on Jenkins is
 
 echo "generated on $(date)"
 
+#commit report
 cd /data/workspace/openfl-validation-linux64/
 git commit -am "jenkins report"
+git push origin master
+
+#push on master branch of openfl
+cd /usr/lib/haxe/lib/openfl/git
+git checkout dev
+git push origin master
+
+#push on master branch of openfl-tools
+cd /usr/lib/haxe/lib/openfl-tools/git
+git checkout dev
 git push origin master
 
 
