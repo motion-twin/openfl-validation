@@ -21,9 +21,12 @@ export DISPLAY=:10
 
 haxelib run openfl test neko
 haxelib run openfl test cpp	
+
+haxelib run openfl test android &
+sleep 120
+
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
-#haxelib run openfl test neko
 
 
 kill -15 $SERVER_PID
