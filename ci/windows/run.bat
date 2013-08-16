@@ -1,7 +1,10 @@
+@echo off
+CALL start "nekoserver.bat"
+
 cd ../../
-haxelib run openfl test neko
-haxelib run openfl test cpp
-haxelib run openfl test android
-haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
+haxelib.exe run openfl test neko
+haxelib.exe run openfl test cpp
+haxelib.exe run openfl test android
+haxelib.exe run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
 
