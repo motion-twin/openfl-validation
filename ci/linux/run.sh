@@ -33,7 +33,9 @@ haxelib run openfl test cpp
 
 #launch android emulator
 sudo -H /opt/android-sdk/tools/emulator -avd galaxy_nexus &
-sleep 60
+ANDROID_EMULATOR=$!
+sleep 180
+
 #launch android test 
 haxelib run openfl test android &
 sleep 60
@@ -41,6 +43,7 @@ sleep 60
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
 kill -15 $SERVER_PID
+kill -15 $ANDROID_EMULATOR
 
 #photo !
-ci/linux/image.sh
+sudo ci/linux/image.sh
