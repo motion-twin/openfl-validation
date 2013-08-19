@@ -2,7 +2,7 @@
 cd ../../
 
 #create a virtual display on the linux server
-sudo Xvfb :10 -screen 0 1024x768x24 -ac > xvfb.log &
+sudo Xvfb :10 -screen 0 1024x768x24 -ac 2>xvfb.log &
 export DISPLAY=:10
 fluxbox &
 x11vnc -display :10 -bg -nopw -listen localhost -xkb
@@ -32,7 +32,7 @@ haxelib run openfl test neko
 haxelib run openfl test cpp
 
 #launch android emulator
-/opt/android-sdk/tools/emulator -avd galaxy_nexus
+sudo -H /opt/android-sdk/tools/emulator -avd galaxy_nexus &
 sleep 60
 #launch android test 
 haxelib run openfl test android &
@@ -42,5 +42,5 @@ haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit
 
 kill -15 $SERVER_PID
 
-
-./image.sh
+#photo !
+ci/linux/image.sh
