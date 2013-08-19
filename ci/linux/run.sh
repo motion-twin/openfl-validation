@@ -32,12 +32,12 @@ haxelib run openfl test neko
 haxelib run openfl test cpp
 
 #launch android emulator
-sudo -H /opt/android-sdk/tools/emulator -avd galaxy_nexus &
-ANDROID_EMULATOR=$!
-sleep 180
+#sudo -H /opt/android-sdk/tools/emulator -avd galaxy_nexus &
+#ANDROID_EMULATOR=$!
+#sleep 180
 
 #launch android test 
-haxelib run openfl test android &
+haxelib run openfl test android -simulator &
 sleep 60
 
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
