@@ -38,12 +38,13 @@ haxelib run openfl test cpp
 
 #launch android test 
 haxelib run openfl test android -simulator &
-sleep 60
+sleep 300
 
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
 kill -15 $SERVER_PID
-kill -15 $ANDROID_EMULATOR
+#kill -15 $ANDROID_EMULATOR
 
 #photo !
+cd $pwd
 sudo ci/linux/image.sh
