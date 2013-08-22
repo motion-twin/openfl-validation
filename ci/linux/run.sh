@@ -2,10 +2,10 @@
 cd ../../
 
 #create a virtual display on the linux server
-sudo Xvfb :10 -screen 0 1024x768x24 -ac 2>xvfb.log &
+sudo Xvfb :10 -screen 0 1024x768x24 -ac >xvfb.log 2>&1 &
 export DISPLAY=:10
 fluxbox &
-x11vnc -display :10 -bg -nopw -listen localhost -xkb
+x11vnc -display :10 -bg -nopw -listen localhost -xkb >x11vnc.log 2>&1
 
 #start neko server for collecting JUnit test report over HTTP
 if [ $OSTYPE = "cygwin" ]; then
@@ -18,10 +18,11 @@ fi
 
 echo "using $neko_server_root as nekotools server root"
 rm $neko_server_root/tmp/results.txt
+rm -rf ./report/test/*
 
 pwd=$(pwd)
 cd $neko_server_root
-nekotools server >nekotools.log &
+nekotools server >nekotools.log 2>&1 &
 SERVER_PID=$!
 cd $pwd
 
@@ -38,7 +39,7 @@ haxelib run openfl test cpp
 
 #launch android test 
 haxelib run openfl test android -simulator &
-sleep 300
+sleep 500
 
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
