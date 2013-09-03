@@ -37,8 +37,8 @@ haxelib run openfl test cpp
 #ANDROID_EMULATOR=$!
 #sleep 180
 
-#launch android test 
-haxelib run openfl test android -simulator &
+#launch android test (with sudo because the avds are in /root/.android folder)
+sudo haxelib run openfl test android -simulator &
 sleep 500
 
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
