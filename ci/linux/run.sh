@@ -26,25 +26,25 @@ nekotools server >nekotools.log 2>&1 &
 SERVER_PID=$!
 cd $pwd
 
-
 export DISPLAY=:10
-
 haxelib run openfl test neko
 haxelib run openfl test cpp
 
 #launch android emulator
-#sudo -H /opt/android-sdk/tools/emulator -avd galaxy_nexus &
-#ANDROID_EMULATOR=$!
-#sleep 180
+sudo -H /opt/android-sdk/tools/emulator-arm -avd nexuss &
+ANDROID_PID2=$!
+sleep 60
 
 #launch android test (with sudo because the avds are in /root/.android folder)
 sudo haxelib run openfl test android -simulator &
-sleep 500
+ANDROID_PID=$!
+sleep 120
 
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
 kill -15 $SERVER_PID
-#kill -15 $ANDROID_EMULATOR
+kill -15 $ANDROID_PID
+kill -15 $ANDROID_PID2
 
 #photo !
 cd $pwd
