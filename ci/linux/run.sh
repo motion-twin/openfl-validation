@@ -41,7 +41,7 @@ sleep 60
 #launch android test (with sudo because the avds are in /root/.android folder)
 sudo haxelib run openfl test android -simulator &
 ANDROID_PID=$!
-sleep 120
+sleep 240
 
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
