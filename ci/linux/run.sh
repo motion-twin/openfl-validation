@@ -36,12 +36,11 @@ haxelib run openfl test cpp
 #launch android emulator
 sudo -H /opt/android-sdk/tools/emulator-arm -avd nexuss &
 ANDROID_PID2=$!
-sleep 60
 
 #launch android test (with sudo because the avds are in /root/.android folder)
 sudo haxelib run openfl test android -simulator &
 ANDROID_PID=$!
-sleep 240
+sleep 720
 
 haxelib run munit test -kill-browser -browser firefox -mlib-log all -result-exit-code
 
@@ -50,5 +49,5 @@ kill -15 $ANDROID_PID
 kill -15 $ANDROID_PID2
 
 #photo !
-cd $pwd
-sudo ./image.sh
+#cd $pwd
+#sudo ./image.sh
