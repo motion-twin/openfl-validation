@@ -1,8 +1,12 @@
 #!/bin/bash -x
+
+#get some diskspace
+sudo rm -rf /tmp/android-*
+
 cd ../../
 
 #create a virtual display on the linux server
-sudo Xvfb :10 -screen 0 1024x768x24 -ac >xvfb.log 2>&1 &
+Xvfb :10 -screen 0 1024x768x24 -ac >xvfb.log 2>&1 &
 export DISPLAY=:10
 fluxbox &
 x11vnc -display :10 -bg -nopw -listen localhost -xkb >x11vnc.log 2>&1
@@ -26,7 +30,6 @@ nekotools server >nekotools.log 2>&1 &
 SERVER_PID=$!
 cd $pwd
 
-export DISPLAY=:10
 haxelib run openfl test neko
 haxelib run openfl test cpp
 
@@ -48,4 +51,4 @@ kill -15 $ANDROID_PID2
 
 #photo !
 cd $pwd
-sudo ci/linux/image.sh
+sudo ./image.sh

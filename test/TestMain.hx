@@ -22,16 +22,10 @@ class TestMain
 		var suites = new Array<Class<massive.munit.TestSuite>>();
 		suites.push(TestSuite);
 
-		#if MCOVER
-			var client = new mcover.coverage.munit.client.MCoverPrintClient();
-			var httpClient = new HTTPClient(new mcover.coverage.munit.client.MCoverSummaryReportClient());
-		#else
-			var client = new RichPrintClient();
-			//var httpClient = new HTTPClient(new SummaryReportClient());
-		#end
+		var client = new RichPrintClient();
 
 		var runner:TestRunner = new TestRunner(client);
-		//runner.addResultClient(httpClient);
+		
 		runner.addResultClient(new HTTPClient(new JUnitReportClient()));
 		
 		#if neko Sys.println('OK GO !'); #end
